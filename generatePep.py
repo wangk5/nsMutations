@@ -16,5 +16,5 @@ for x in len(mutable_seq):
 	sub_seq = ""
 	if # mutation found:
 		sub_seq = mutable_seq[x-8:x+8]
-	  for y in len(sub_seq):
-		  list_9mers.append(sub_seq[y:y+8])
+		for y in len(sub_seq):
+			list_9mers.append(sub_seq[y:y+8])
