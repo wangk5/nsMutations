@@ -53,11 +53,11 @@ for j in range (0, len(list_HGVSp)):
 #generates 9-mers from mutated area
 for x in range (0, len(mutated_seqs)):
 	if mut_posit[x] < 8:
-		mutated_seqs[x] = mutated_seqs[x][0:mut_posit[x]+8]
+		mutated_seqs[x] = mutated_seqs[x][0:mut_posit[x]+9]
 	if mut_posit[x] > len(mutated_seqs[x]) - 8:
 		mutated_seqs[x] = mutated_seqs[x][lmut_posit[x]-8:len(mutated_seqs[x])]
 	else:
-		mutated_seqs[x] = mutated_seqs[x][mut_posit[x]-8:mut_posit[x]+8]
+		mutated_seqs[x] = mutated_seqs[x][mut_posit[x]-8:mut_posit[x]+9]
 
 for y in range (0, len(mutated_seqs)):
 	for z in range (0, len(mutated_seqs[y])-8):
