@@ -30,12 +30,13 @@ for fasta_seq in SeqIO.parse(input_file, "fasta"):
 	seq_SWISS = fasta_seq.seq
 	ref_seqs.append(id_SWISS:seq_SWISS)
 
-#adds mutation to SWISSPROT sequence
+#corresponding letter to three char amino acids
 aminos = ["Gly":"G", "Ala":"A", "Leu":"L", "Met":"M", "Phe":"F", 
 	  "Trp":"W", "Lys":"K", "Gln":"Q", "Glu":"E", "Ser":"S",
 	  "Pro":"P", "Val":"V", "Ile":"I", "Cys":"C", "Tyr":"Y", 
 	  "His":"H", "Arg":"R", "Asn":"N", "Asp":"D", "Thr":"T"]
 
+#adds mutation to SWISSPROT sequences
 mutated_seqs = []
 mut_posit = []
 for j in len(list_HGVSp):
