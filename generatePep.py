@@ -45,7 +45,6 @@ for j in len(list_HGVSp):
 	change_to = aminos[change_id]
 	change_at = list_HGVSp[j][5:-4]
 	mut_temp[change_at] = change_to #mutating the sequence
-
 	mut_posit.append(change_at)
 	mutated_seqs.append(mut_temp)
 
