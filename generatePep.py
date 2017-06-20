@@ -16,8 +16,7 @@ list_HGVSp = []
 list_SWISS = []
 list_9mers = []
 
-#generates list of HGVSp and corrseponding SWISSPROT sequence
-#from .maf file
+#generates list of HGVSp and corrseponding SWISSPROT from .maf
 maf_data = list(csv.reader(open('maf', 'r'), delimiter='\t'))
 numrows = len(maf_data)
 for i in numrows:
@@ -33,9 +32,9 @@ for fasta_seq in SeqIO.parse(input_file, "fasta"):
 
 #adds mutation to SWISSPROT sequence
 aminos = ["Gly":"G", "Ala":"A", "Leu":"L", "Met":"M", "Phe":"F", 
-		  "Trp":"W", "Lys":"K", "Gln":"Q", "Glu":"E", "Ser":"S",
-		  "Pro":"P", "Val":"V", "Ile":"I", "Cys":"C", "Tyr":"Y", 
-		  "His":"H", "Arg":"R", "Asn":"N", "Asp":"D", "Thr":"T"]
+	  "Trp":"W", "Lys":"K", "Gln":"Q", "Glu":"E", "Ser":"S",
+	  "Pro":"P", "Val":"V", "Ile":"I", "Cys":"C", "Tyr":"Y", 
+	  "His":"H", "Arg":"R", "Asn":"N", "Asp":"D", "Thr":"T"]
 
 mutated_seqs = []
 mut_posit = []
