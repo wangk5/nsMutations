@@ -63,5 +63,7 @@ for y in range (0, len(mutated_seqs)):
 	for z in range (0, len(mutated_seqs[y])-8):
 		list_9mers.append(mutated_seqs[y][z:z+9])
 
-for k in range (0,len(list_9mers)):
-	print list_9mers[k]
+#output to .txt file
+with open("9mers.txt", "w") as txt_file:
+	for k in range (0,len(list_9mers)):
+		txt_file.write(str(list_9mers[k]) + "\n")
