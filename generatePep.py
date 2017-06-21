@@ -14,6 +14,7 @@ fasta_seq = next(SeqIO.parse(input_file, "fasta"))
 
 list_HGVSp = []
 list_SWISS = []
+list_lengths = []
 list_9mers = []
 
 #generates list of HGVSp and corrseponding SWISSPROT from .maf
@@ -43,6 +44,7 @@ for j in range (0, len(list_HGVSp)):
 	if list_SWISS[j] in ref_seqs.keys():
 		temp_seq = ref_seqs[list_SWISS[j]]
 		mut_temp = temp_seq.tomutable()
+		list_lengths.append(len(mut_temp))
 		change_id = list_HGVSp[j][-3:]
 		change_to = aminos[change_id]
 		change_at = int(list_HGVSp[j][5:-3])
@@ -63,7 +65,13 @@ for y in range (0, len(mutated_seqs)):
 	for z in range (0, len(mutated_seqs[y])-8):
 		list_9mers.append(mutated_seqs[y][z:z+9])
 
-#output to .txt file
-with open("9mers.txt", "w") as txt_file:
-	for k in range (0,len(list_9mers)):
-		txt_file.write(str(list_9mers[k]) + "\n")
+#output to fasta file
+with open("9mers.fasta", "w") as fasta_file:
+	if("" in list_SWISS):
+		list_SWISS.remove("")
+	for z in range (0, len(list_SWISS)):
+		for k in range (z*9,(z+1)*9):
+			fasta_file.write(">" + str(list_SWISS[z]) + " | " + 
+						str(list_HGVSp[z]) + " | " + 
+						str(list_lengths[z]) + "\n" + 
+		 				str(list_9mers[k]) + "\n")
